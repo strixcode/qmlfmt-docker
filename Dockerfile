@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt update \
  && apt install -y build-essential git cmake qtbase5-dev qtdeclarative5-dev
 
-RUN git clone https://github.com/jesperhh/qmlfmt.git
+RUN git clone https://github.com/strixcode/qmlfmt.git
 WORKDIR /qmlfmt
 RUN git submodule update --init qt-creator
 

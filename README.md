@@ -1,7 +1,7 @@
 # qmlfmt-docker
 qmlfmt - command line application that formats QML files
 
-This is dockerized version of [jesperhh/qmlfmt](https://github.com/jesperhh/qmlfmt)
+This is a dockerized version of [strixcode/qmlfmt](https://github.com/strixcode/qmlfmt)
 
 ## Usage
 
@@ -16,10 +16,10 @@ To process multiple files you need to bind mount a host folder:
 
 ### User / Group Identifiers
 
-When using bind mounts (-v flag) permissions issues can arise between the host OS and the container, to avoid this specify the user PUID and group PGID as environment variables. By default this container runs as user 1000 and group 1000.
+When using qmlfmt bind mounts (-v flag) permissions issues can arise between the host OS and the container, to avoid this specify the user PUID and group PGID as environment variables. By default this container runs as user 1000 and group 1000. To run it as root use -e PUID=0, PGID is ignored in this case.
 
 ```
-docker run -e PUID=$(id -u) -e PGID=$(id -g) -v $PWD/qml:/qml strixcode/qmlfmt /qml
+docker run -e PUID=$(id -u) -e PGID=$(id -g) -v $PWD/qml:/qml strixcode/qmlfmt -w /qml
 ```
 
 ### Options:
